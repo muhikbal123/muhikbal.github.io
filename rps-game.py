@@ -1,19 +1,21 @@
-from random import randint
+import random
 
 # variable
-choice = ['rook', 'paper', 'scissor']
+index = ['rock', 'paper', 'scissor']
 # user computer
-computer = choice[randint(0,2)]
+computer = random.choice(index)
 # set variabel player = false
 player = False
 
 while player == False :
     # enter player selection
-    player = input("rook, paper, scissor = ")
+    player = input("rock, paper, scissor = ")
     if computer == player :
+        print("player = ", computer)
         print("computer select = ", computer)
         print("draw game!!")
-    elif player == 'rook':
+    elif player == 'rock':
+        print("Player = rock")
         if computer == 'paper' :
             print("computer select paper")
             print("you lose!!!")
@@ -21,20 +23,27 @@ while player == False :
             print("computer select scissor")
             print("you win!!!")
     elif player == 'paper':
+        print("Player = paper")
         if computer == 'scissor' :
             print("computer select scissor")
             print("you lose!!!")
         else :
-            print("computer select rook")
+            print("computer select rock")
             print("you win!!!")
     elif player == 'scissor':
-        if computer == 'rook' :
-            print("computer select rook")
+        print("Player = scissor")
+        if computer == 'rock' :
+            print("computer select rock")
             print("you lose!!!")
         else :
             print("computer selected papper")
             print("you win!!!")
     else:
         print("you choise wrong!!!, please reselect!!!")
-    player = False
-    computer = choice[randint(0,2)]
+    play_again=input('Play Again(y/n)= ')
+    if play_again=='y':
+        player = False
+        computer = random.choice(index)
+    elif play_again=='n':
+        print("Game Over")
+        
